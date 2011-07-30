@@ -65,7 +65,7 @@ class Paginator {
     function __construct($itemsCount, $currentPage = 1, $limit = 20, $midRange = 7)
     {
         //set total items count from controller
-        $this->itemscount = $itemsCount;
+        $this->itemsCount = $itemsCount;
         $this->currentPage = $currentPage;
         $this->limit = $limit;
         $this->midRange= $midRange;
@@ -126,7 +126,7 @@ class Paginator {
     {
         //If limit is set to 0 or set to number bigger then total items count
         //display all in one page
-        if ($this->limit < 1 || $this->limit > $this->itemscount)
+        if ($this->limit < 1 || $this->limit > $this->itemsCount)
         {
             $this->numPages = 1;
         }
@@ -134,10 +134,10 @@ class Paginator {
         {
             //Calculate rest numbers from dividing operation so we can add one 
             //more page for this items
-            $restItemsNum = $this->itemscount % $this->limit;
+            $restItemsNum = $this->itemsCount % $this->limit;
             //if rest items > 0 then add one more page else just divide items 
             //by limit
-            $this->numPages = $restItemsNum > 0 ? intval($this->itemscount / $this->limit) + 1 : intval($this->itemscount / $this->limit);
+            $this->numPages = $restItemsNum > 0 ? intval($this->itemsCount / $this->limit) + 1 : intval($this->itemsCount / $this->limit);
         }
     }
     
