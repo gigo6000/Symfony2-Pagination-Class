@@ -24,7 +24,6 @@ class Paginator {
      * @var int total number of pages
      */
     protected $numPages;
-    //total items loaded from database
 
     /**
      * @var int items limit (items per page)
@@ -83,22 +82,22 @@ class Paginator {
     
     private function calculateRange()
     {
-        $this->startRange = $this->currentPage - floor($this->midRange/2);
-        $this->endRange = $this->currentPage + floor($this->midRange/2);
+        $startRange = $this->currentPage - floor($this->midRange/2);
+        $endRange = $this->currentPage + floor($this->midRange/2);
 
-        if($this->startRange <= 0)
+        if($startRange <= 0)
         {
-            $this->endRange += abs($this->startRange)+1;
-            $this->startRange = 1;
+            $endRange += abs($startRange)+1;
+            $startRange = 1;
         }
         
-        if($this->endRange > $this->numPages)
+        if($endRange > $this->numPages)
         {
-            $this->startRange -= $this->endRange-$this->numPages;
-            $this->endRange = $this->numPages;
+            $startRange -= $endRange-$this->numPages;
+            $endRange = $this->numPages;
         }
         
-        $this->range = range($this->startRange, $this->endRange);
+        $this->range = range($startRange, $endRange);
     }
 
     private function setDefaults()
