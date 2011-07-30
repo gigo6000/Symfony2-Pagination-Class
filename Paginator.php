@@ -39,16 +39,6 @@ class Paginator {
      * @var int pages to show at left and right of current page
      */
     protected $midRange;
-    
-    /**
-     * @var int range initial page
-     */
-    protected $startRange;
-
-    /**
-     * @var int range end page
-     */
-    protected $endRange;
 
     /**
      * @var array range
